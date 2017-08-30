@@ -10,107 +10,109 @@ using SanaTest.Models;
 
 namespace SanaTest.Controllers
 {
-    public class Sana_ProductCategorieController : Controller
+    public class Sana_ProductCategoryController : Controller
     {
         private SanaEntities db = new SanaEntities();
 
-        // GET: Sana_ProductCategorie
+        // GET: Sana_ProductCategory
         public ActionResult Index()
         {
-            return View(db.Sana_ProductCategorie.ToList());
+            return View(db.Sana_ProductCategory.ToList());
         }
 
-        // GET: Sana_ProductCategorie/Details/5
+        // GET: Sana_ProductCategory/Details/5
         public ActionResult Details(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sana_ProductCategorie sana_ProductCategorie = db.Sana_ProductCategorie.Find(id);
-            if (sana_ProductCategorie == null)
+            Sana_ProductCategory sana_ProductCategory = db.Sana_ProductCategory.Find(id);
+            if (sana_ProductCategory == null)
             {
                 return HttpNotFound();
             }
-            return View(sana_ProductCategorie);
+            return View(sana_ProductCategory);
         }
 
-        // GET: Sana_ProductCategorie/Create
+        // GET: Sana_ProductCategory/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Sana_ProductCategorie/Create
+        // POST: Sana_ProductCategory/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idProductCategorie,name,creationDate,modificationDate,enable")] Sana_ProductCategorie sana_ProductCategorie)
+        public ActionResult Create([Bind(Include = "idProductCategory,name,creationDate,modificationDate,enable")] Sana_ProductCategory sana_ProductCategory)
         {
             if (ModelState.IsValid)
             {
-                db.Sana_ProductCategorie.Add(sana_ProductCategorie);
+                sana_ProductCategory.creationDate = DateTime.Now;
+
+                db.Sana_ProductCategory.Add(sana_ProductCategory);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(sana_ProductCategorie);
+            return View(sana_ProductCategory);
         }
 
-        // GET: Sana_ProductCategorie/Edit/5
+        // GET: Sana_ProductCategory/Edit/5
         public ActionResult Edit(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sana_ProductCategorie sana_ProductCategorie = db.Sana_ProductCategorie.Find(id);
-            if (sana_ProductCategorie == null)
+            Sana_ProductCategory sana_ProductCategory = db.Sana_ProductCategory.Find(id);
+            if (sana_ProductCategory == null)
             {
                 return HttpNotFound();
             }
-            return View(sana_ProductCategorie);
+            return View(sana_ProductCategory);
         }
 
-        // POST: Sana_ProductCategorie/Edit/5
+        // POST: Sana_ProductCategory/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idProductCategorie,name,creationDate,modificationDate,enable")] Sana_ProductCategorie sana_ProductCategorie)
+        public ActionResult Edit([Bind(Include = "idProductCategory,name,creationDate,modificationDate,enable")] Sana_ProductCategory sana_ProductCategory)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(sana_ProductCategorie).State = EntityState.Modified;
+                db.Entry(sana_ProductCategory).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(sana_ProductCategorie);
+            return View(sana_ProductCategory);
         }
 
-        // GET: Sana_ProductCategorie/Delete/5
+        // GET: Sana_ProductCategory/Delete/5
         public ActionResult Delete(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sana_ProductCategorie sana_ProductCategorie = db.Sana_ProductCategorie.Find(id);
-            if (sana_ProductCategorie == null)
+            Sana_ProductCategory sana_ProductCategory = db.Sana_ProductCategory.Find(id);
+            if (sana_ProductCategory == null)
             {
                 return HttpNotFound();
             }
-            return View(sana_ProductCategorie);
+            return View(sana_ProductCategory);
         }
 
-        // POST: Sana_ProductCategorie/Delete/5
+        // POST: Sana_ProductCategory/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            Sana_ProductCategorie sana_ProductCategorie = db.Sana_ProductCategorie.Find(id);
-            db.Sana_ProductCategorie.Remove(sana_ProductCategorie);
+            Sana_ProductCategory sana_ProductCategory = db.Sana_ProductCategory.Find(id);
+            db.Sana_ProductCategory.Remove(sana_ProductCategory);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -12,21 +12,21 @@ namespace SanaTest.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Sana_ProductCategorie
+    public partial class Sana_ProductCategory
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Sana_ProductCategorie()
+        public Sana_ProductCategory()
         {
-            this.Sana_CategorieAndProduct = new HashSet<Sana_CategorieAndProduct>();
+            this.Sana_CategoryAndProduct = new HashSet<Sana_CategoryAndProduct>();
         }
     
-        public long idProductCategorie { get; set; }
+        public long idProductCategory { get; set; }
         public string name { get; set; }
         public System.DateTime creationDate { get; set; }
         public Nullable<System.DateTime> modificationDate { get; set; }
-        public Nullable<bool> enable { get; set; }
+        public bool enable { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sana_CategorieAndProduct> Sana_CategorieAndProduct { get; set; }
+        public virtual ICollection<Sana_CategoryAndProduct> Sana_CategoryAndProduct { get; set; }
     }
 }

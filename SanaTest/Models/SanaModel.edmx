@@ -5,13 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="SanaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Sana_CategorieAndProduct">
+        <EntityType Name="Sana_CategoryAndProduct">
           <Key>
             <PropertyRef Name="idProduct" />
-            <PropertyRef Name="idCategorie" />
+            <PropertyRef Name="idCategory" />
           </Key>
           <Property Name="idProduct" Type="bigint" Nullable="false" />
-          <Property Name="idCategorie" Type="bigint" Nullable="false" />
+          <Property Name="idCategory" Type="bigint" Nullable="false" />
           <Property Name="creationDate" Type="smalldatetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Sana_Customer">
@@ -44,17 +44,17 @@
           <Property Name="productNumber" Type="bigint" Nullable="false" />
           <Property Name="creationDate" Type="smalldatetime" Nullable="false" />
           <Property Name="modificationDate" Type="smalldatetime" />
-          <Property Name="bit" Type="bit" Nullable="false" />
+          <Property Name="enable" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="Sana_ProductCategorie">
+        <EntityType Name="Sana_ProductCategory">
           <Key>
-            <PropertyRef Name="idProductCategorie" />
+            <PropertyRef Name="idProductCategory" />
           </Key>
-          <Property Name="idProductCategorie" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idProductCategory" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="creationDate" Type="smalldatetime" Nullable="false" />
           <Property Name="modificationDate" Type="smalldatetime" />
-          <Property Name="enable" Type="bit" />
+          <Property Name="enable" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Sana_ProductOrder">
           <Key>
@@ -65,27 +65,27 @@
           <Property Name="idProduct" Type="bigint" Nullable="false" />
           <Property Name="quantity" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Sana_CategorieAndProduct_Sana_Product">
+        <Association Name="FK_Sana_CategoryAndProduct_Sana_Product">
           <End Role="Sana_Product" Type="Self.Sana_Product" Multiplicity="1" />
-          <End Role="Sana_CategorieAndProduct" Type="Self.Sana_CategorieAndProduct" Multiplicity="*" />
+          <End Role="Sana_CategoryAndProduct" Type="Self.Sana_CategoryAndProduct" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Sana_Product">
               <PropertyRef Name="idProduct" />
             </Principal>
-            <Dependent Role="Sana_CategorieAndProduct">
+            <Dependent Role="Sana_CategoryAndProduct">
               <PropertyRef Name="idProduct" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Sana_CategorieAndProduct_Sana_ProductCategorie">
-          <End Role="Sana_ProductCategorie" Type="Self.Sana_ProductCategorie" Multiplicity="1" />
-          <End Role="Sana_CategorieAndProduct" Type="Self.Sana_CategorieAndProduct" Multiplicity="*" />
+        <Association Name="FK_Sana_CategoryAndProduct_Sana_ProductCategory">
+          <End Role="Sana_ProductCategory" Type="Self.Sana_ProductCategory" Multiplicity="1" />
+          <End Role="Sana_CategoryAndProduct" Type="Self.Sana_CategoryAndProduct" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Sana_ProductCategorie">
-              <PropertyRef Name="idProductCategorie" />
+            <Principal Role="Sana_ProductCategory">
+              <PropertyRef Name="idProductCategory" />
             </Principal>
-            <Dependent Role="Sana_CategorieAndProduct">
-              <PropertyRef Name="idCategorie" />
+            <Dependent Role="Sana_CategoryAndProduct">
+              <PropertyRef Name="idCategory" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -126,19 +126,19 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="SanaModelStoreContainer">
-          <EntitySet Name="Sana_CategorieAndProduct" EntityType="Self.Sana_CategorieAndProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sana_CategoryAndProduct" EntityType="Self.Sana_CategoryAndProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sana_Customer" EntityType="Self.Sana_Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sana_Order" EntityType="Self.Sana_Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sana_Product" EntityType="Self.Sana_Product" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Sana_ProductCategorie" EntityType="Self.Sana_ProductCategorie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sana_ProductCategory" EntityType="Self.Sana_ProductCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sana_ProductOrder" EntityType="Self.Sana_ProductOrder" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Sana_CategorieAndProduct_Sana_Product" Association="Self.FK_Sana_CategorieAndProduct_Sana_Product">
+          <AssociationSet Name="FK_Sana_CategoryAndProduct_Sana_Product" Association="Self.FK_Sana_CategoryAndProduct_Sana_Product">
             <End Role="Sana_Product" EntitySet="Sana_Product" />
-            <End Role="Sana_CategorieAndProduct" EntitySet="Sana_CategorieAndProduct" />
+            <End Role="Sana_CategoryAndProduct" EntitySet="Sana_CategoryAndProduct" />
           </AssociationSet>
-          <AssociationSet Name="FK_Sana_CategorieAndProduct_Sana_ProductCategorie" Association="Self.FK_Sana_CategorieAndProduct_Sana_ProductCategorie">
-            <End Role="Sana_ProductCategorie" EntitySet="Sana_ProductCategorie" />
-            <End Role="Sana_CategorieAndProduct" EntitySet="Sana_CategorieAndProduct" />
+          <AssociationSet Name="FK_Sana_CategoryAndProduct_Sana_ProductCategory" Association="Self.FK_Sana_CategoryAndProduct_Sana_ProductCategory">
+            <End Role="Sana_ProductCategory" EntitySet="Sana_ProductCategory" />
+            <End Role="Sana_CategoryAndProduct" EntitySet="Sana_CategoryAndProduct" />
           </AssociationSet>
           <AssociationSet Name="FK_Sana_Order_Sana_Customer" Association="Self.FK_Sana_Order_Sana_Customer">
             <End Role="Sana_Customer" EntitySet="Sana_Customer" />
@@ -157,17 +157,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SanaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Sana_CategorieAndProduct">
-          <Key>
-            <PropertyRef Name="idProduct" />
-            <PropertyRef Name="idCategorie" />
-          </Key>
-          <Property Name="idProduct" Type="Int64" Nullable="false" />
-          <Property Name="idCategorie" Type="Int64" Nullable="false" />
-          <Property Name="creationDate" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Sana_Product" Relationship="Self.FK_Sana_CategorieAndProduct_Sana_Product" FromRole="Sana_CategorieAndProduct" ToRole="Sana_Product" />
-          <NavigationProperty Name="Sana_ProductCategorie" Relationship="Self.FK_Sana_CategorieAndProduct_Sana_ProductCategorie" FromRole="Sana_CategorieAndProduct" ToRole="Sana_ProductCategorie" />
-        </EntityType>
         <EntityType Name="Sana_Customer">
           <Key>
             <PropertyRef Name="idCustomer" />
@@ -191,31 +180,6 @@
           <NavigationProperty Name="Sana_Customer" Relationship="Self.FK_Sana_Order_Sana_Customer" FromRole="Sana_Order" ToRole="Sana_Customer" />
           <NavigationProperty Name="Sana_ProductOrder" Relationship="Self.FK_Sana_ProductOrder_Sana_Order" FromRole="Sana_Order" ToRole="Sana_ProductOrder" />
         </EntityType>
-        <EntityType Name="Sana_Product">
-          <Key>
-            <PropertyRef Name="idProduct" />
-          </Key>
-          <Property Name="idProduct" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="title" Type="String" MaxLength="350" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="price" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
-          <Property Name="productNumber" Type="Int64" Nullable="false" />
-          <Property Name="creationDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="modificationDate" Type="DateTime" Precision="0" />
-          <Property Name="bit" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Sana_CategorieAndProduct" Relationship="Self.FK_Sana_CategorieAndProduct_Sana_Product" FromRole="Sana_Product" ToRole="Sana_CategorieAndProduct" />
-          <NavigationProperty Name="Sana_ProductOrder" Relationship="Self.FK_Sana_ProductOrder_Sana_Product" FromRole="Sana_Product" ToRole="Sana_ProductOrder" />
-        </EntityType>
-        <EntityType Name="Sana_ProductCategorie">
-          <Key>
-            <PropertyRef Name="idProductCategorie" />
-          </Key>
-          <Property Name="idProductCategorie" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="creationDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="modificationDate" Type="DateTime" Precision="0" />
-          <Property Name="enable" Type="Boolean" />
-          <NavigationProperty Name="Sana_CategorieAndProduct" Relationship="Self.FK_Sana_CategorieAndProduct_Sana_ProductCategorie" FromRole="Sana_ProductCategorie" ToRole="Sana_CategorieAndProduct" />
-        </EntityType>
         <EntityType Name="Sana_ProductOrder">
           <Key>
             <PropertyRef Name="idOrder" />
@@ -225,32 +189,8 @@
           <Property Name="idProduct" Type="Int64" Nullable="false" />
           <Property Name="quantity" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Sana_Order" Relationship="Self.FK_Sana_ProductOrder_Sana_Order" FromRole="Sana_ProductOrder" ToRole="Sana_Order" />
-          <NavigationProperty Name="Sana_Product" Relationship="Self.FK_Sana_ProductOrder_Sana_Product" FromRole="Sana_ProductOrder" ToRole="Sana_Product" />
+          <NavigationProperty Name="Sana_Product" Relationship="SanaModel.FK_Sana_ProductOrder_Sana_Product" FromRole="Sana_ProductOrder" ToRole="Sana_Product" />
         </EntityType>
-        <Association Name="FK_Sana_CategorieAndProduct_Sana_Product">
-          <End Role="Sana_Product" Type="Self.Sana_Product" Multiplicity="1" />
-          <End Role="Sana_CategorieAndProduct" Type="Self.Sana_CategorieAndProduct" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sana_Product">
-              <PropertyRef Name="idProduct" />
-            </Principal>
-            <Dependent Role="Sana_CategorieAndProduct">
-              <PropertyRef Name="idProduct" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Sana_CategorieAndProduct_Sana_ProductCategorie">
-          <End Role="Sana_ProductCategorie" Type="Self.Sana_ProductCategorie" Multiplicity="1" />
-          <End Role="Sana_CategorieAndProduct" Type="Self.Sana_CategorieAndProduct" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sana_ProductCategorie">
-              <PropertyRef Name="idProductCategorie" />
-            </Principal>
-            <Dependent Role="Sana_CategorieAndProduct">
-              <PropertyRef Name="idCategorie" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Sana_Order_Sana_Customer">
           <End Role="Sana_Customer" Type="Self.Sana_Customer" Multiplicity="1" />
           <End Role="Sana_Order" Type="Self.Sana_Order" Multiplicity="*" />
@@ -275,9 +215,97 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityContainer Name="SanaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Sana_Customer" EntityType="Self.Sana_Customer" />
+          <EntitySet Name="Sana_Order" EntityType="Self.Sana_Order" />
+          <EntitySet Name="Sana_ProductOrder" EntityType="Self.Sana_ProductOrder" />
+          <AssociationSet Name="FK_Sana_Order_Sana_Customer" Association="Self.FK_Sana_Order_Sana_Customer">
+            <End Role="Sana_Customer" EntitySet="Sana_Customer" />
+            <End Role="Sana_Order" EntitySet="Sana_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sana_ProductOrder_Sana_Order" Association="Self.FK_Sana_ProductOrder_Sana_Order">
+            <End Role="Sana_Order" EntitySet="Sana_Order" />
+            <End Role="Sana_ProductOrder" EntitySet="Sana_ProductOrder" />
+          </AssociationSet>
+          <EntitySet Name="Sana_CategoryAndProduct" EntityType="SanaModel.Sana_CategoryAndProduct" />
+          <EntitySet Name="Sana_ProductCategory" EntityType="SanaModel.Sana_ProductCategory" />
+          <AssociationSet Name="FK_Sana_CategoryAndProduct_Sana_ProductCategory" Association="SanaModel.FK_Sana_CategoryAndProduct_Sana_ProductCategory">
+            <End Role="Sana_ProductCategory" EntitySet="Sana_ProductCategory" />
+            <End Role="Sana_CategoryAndProduct" EntitySet="Sana_CategoryAndProduct" />
+          </AssociationSet>
+          <EntitySet Name="Sana_Product" EntityType="SanaModel.Sana_Product" />
+          <AssociationSet Name="FK_Sana_CategoryAndProduct_Sana_Product" Association="SanaModel.FK_Sana_CategoryAndProduct_Sana_Product">
+            <End Role="Sana_Product" EntitySet="Sana_Product" />
+            <End Role="Sana_CategoryAndProduct" EntitySet="Sana_CategoryAndProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sana_ProductOrder_Sana_Product" Association="SanaModel.FK_Sana_ProductOrder_Sana_Product">
+            <End Role="Sana_Product" EntitySet="Sana_Product" />
+            <End Role="Sana_ProductOrder" EntitySet="Sana_ProductOrder" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Sana_CategoryAndProduct">
+          <Key>
+            <PropertyRef Name="idProduct" />
+            <PropertyRef Name="idCategory" />
+          </Key>
+          <Property Name="idProduct" Type="Int64" Nullable="false" />
+          <Property Name="idCategory" Type="Int64" Nullable="false" />
+          <Property Name="creationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Sana_ProductCategory" Relationship="SanaModel.FK_Sana_CategoryAndProduct_Sana_ProductCategory" FromRole="Sana_CategoryAndProduct" ToRole="Sana_ProductCategory" />
+          <NavigationProperty Name="Sana_Product" Relationship="SanaModel.FK_Sana_CategoryAndProduct_Sana_Product" FromRole="Sana_CategoryAndProduct" ToRole="Sana_Product" />
+        </EntityType>
+        <EntityType Name="Sana_ProductCategory">
+          <Key>
+            <PropertyRef Name="idProductCategory" />
+          </Key>
+          <Property Name="idProductCategory" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="creationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="modificationDate" Type="DateTime" Precision="0" />
+          <Property Name="enable" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Sana_CategoryAndProduct" Relationship="SanaModel.FK_Sana_CategoryAndProduct_Sana_ProductCategory" FromRole="Sana_ProductCategory" ToRole="Sana_CategoryAndProduct" />
+        </EntityType>
+        <Association Name="FK_Sana_CategoryAndProduct_Sana_ProductCategory">
+          <End Type="SanaModel.Sana_ProductCategory" Role="Sana_ProductCategory" Multiplicity="1" />
+          <End Type="SanaModel.Sana_CategoryAndProduct" Role="Sana_CategoryAndProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sana_ProductCategory">
+              <PropertyRef Name="idProductCategory" />
+            </Principal>
+            <Dependent Role="Sana_CategoryAndProduct">
+              <PropertyRef Name="idCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Sana_Product">
+          <Key>
+            <PropertyRef Name="idProduct" />
+          </Key>
+          <Property Name="idProduct" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Decimal" Nullable="false" Precision="12" Scale="2" />
+          <Property Name="productNumber" Type="Int64" Nullable="false" />
+          <Property Name="creationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="modificationDate" Type="DateTime" Precision="0" />
+          <Property Name="enable" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Sana_CategoryAndProduct" Relationship="SanaModel.FK_Sana_CategoryAndProduct_Sana_Product" FromRole="Sana_Product" ToRole="Sana_CategoryAndProduct" />
+          <NavigationProperty Name="Sana_ProductOrder" Relationship="SanaModel.FK_Sana_ProductOrder_Sana_Product" FromRole="Sana_Product" ToRole="Sana_ProductOrder" />
+        </EntityType>
+        <Association Name="FK_Sana_CategoryAndProduct_Sana_Product">
+          <End Type="SanaModel.Sana_Product" Role="Sana_Product" Multiplicity="1" />
+          <End Type="SanaModel.Sana_CategoryAndProduct" Role="Sana_CategoryAndProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sana_Product">
+              <PropertyRef Name="idProduct" />
+            </Principal>
+            <Dependent Role="Sana_CategoryAndProduct">
+              <PropertyRef Name="idProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Sana_ProductOrder_Sana_Product">
-          <End Role="Sana_Product" Type="Self.Sana_Product" Multiplicity="1" />
-          <End Role="Sana_ProductOrder" Type="Self.Sana_ProductOrder" Multiplicity="*" />
+          <End Type="SanaModel.Sana_Product" Role="Sana_Product" Multiplicity="1" />
+          <End Type="SanaModel.Sana_ProductOrder" Role="Sana_ProductOrder" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Sana_Product">
               <PropertyRef Name="idProduct" />
@@ -287,49 +315,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SanaEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Sana_CategorieAndProduct" EntityType="Self.Sana_CategorieAndProduct" />
-          <EntitySet Name="Sana_Customer" EntityType="Self.Sana_Customer" />
-          <EntitySet Name="Sana_Order" EntityType="Self.Sana_Order" />
-          <EntitySet Name="Sana_Product" EntityType="Self.Sana_Product" />
-          <EntitySet Name="Sana_ProductCategorie" EntityType="Self.Sana_ProductCategorie" />
-          <EntitySet Name="Sana_ProductOrder" EntityType="Self.Sana_ProductOrder" />
-          <AssociationSet Name="FK_Sana_CategorieAndProduct_Sana_Product" Association="Self.FK_Sana_CategorieAndProduct_Sana_Product">
-            <End Role="Sana_Product" EntitySet="Sana_Product" />
-            <End Role="Sana_CategorieAndProduct" EntitySet="Sana_CategorieAndProduct" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sana_CategorieAndProduct_Sana_ProductCategorie" Association="Self.FK_Sana_CategorieAndProduct_Sana_ProductCategorie">
-            <End Role="Sana_ProductCategorie" EntitySet="Sana_ProductCategorie" />
-            <End Role="Sana_CategorieAndProduct" EntitySet="Sana_CategorieAndProduct" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sana_Order_Sana_Customer" Association="Self.FK_Sana_Order_Sana_Customer">
-            <End Role="Sana_Customer" EntitySet="Sana_Customer" />
-            <End Role="Sana_Order" EntitySet="Sana_Order" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sana_ProductOrder_Sana_Order" Association="Self.FK_Sana_ProductOrder_Sana_Order">
-            <End Role="Sana_Order" EntitySet="Sana_Order" />
-            <End Role="Sana_ProductOrder" EntitySet="Sana_ProductOrder" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sana_ProductOrder_Sana_Product" Association="Self.FK_Sana_ProductOrder_Sana_Product">
-            <End Role="Sana_Product" EntitySet="Sana_Product" />
-            <End Role="Sana_ProductOrder" EntitySet="Sana_ProductOrder" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="SanaModelStoreContainer" CdmEntityContainer="SanaEntities">
-          <EntitySetMapping Name="Sana_CategorieAndProduct">
-            <EntityTypeMapping TypeName="SanaModel.Sana_CategorieAndProduct">
-              <MappingFragment StoreEntitySet="Sana_CategorieAndProduct">
-                <ScalarProperty Name="idProduct" ColumnName="idProduct" />
-                <ScalarProperty Name="idCategorie" ColumnName="idCategorie" />
-                <ScalarProperty Name="creationDate" ColumnName="creationDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Sana_Customer">
             <EntityTypeMapping TypeName="SanaModel.Sana_Customer">
               <MappingFragment StoreEntitySet="Sana_Customer">
@@ -352,36 +343,45 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Sana_Product">
-            <EntityTypeMapping TypeName="SanaModel.Sana_Product">
-              <MappingFragment StoreEntitySet="Sana_Product">
-                <ScalarProperty Name="idProduct" ColumnName="idProduct" />
-                <ScalarProperty Name="title" ColumnName="title" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="productNumber" ColumnName="productNumber" />
-                <ScalarProperty Name="creationDate" ColumnName="creationDate" />
-                <ScalarProperty Name="modificationDate" ColumnName="modificationDate" />
-                <ScalarProperty Name="bit" ColumnName="bit" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Sana_ProductCategorie">
-            <EntityTypeMapping TypeName="SanaModel.Sana_ProductCategorie">
-              <MappingFragment StoreEntitySet="Sana_ProductCategorie">
-                <ScalarProperty Name="idProductCategorie" ColumnName="idProductCategorie" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="creationDate" ColumnName="creationDate" />
-                <ScalarProperty Name="modificationDate" ColumnName="modificationDate" />
-                <ScalarProperty Name="enable" ColumnName="enable" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Sana_ProductOrder">
             <EntityTypeMapping TypeName="SanaModel.Sana_ProductOrder">
               <MappingFragment StoreEntitySet="Sana_ProductOrder">
                 <ScalarProperty Name="idOrder" ColumnName="idOrder" />
                 <ScalarProperty Name="idProduct" ColumnName="idProduct" />
                 <ScalarProperty Name="quantity" ColumnName="quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sana_CategoryAndProduct">
+            <EntityTypeMapping TypeName="SanaModel.Sana_CategoryAndProduct">
+              <MappingFragment StoreEntitySet="Sana_CategoryAndProduct">
+                <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+                <ScalarProperty Name="idCategory" ColumnName="idCategory" />
+                <ScalarProperty Name="idProduct" ColumnName="idProduct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sana_ProductCategory">
+            <EntityTypeMapping TypeName="SanaModel.Sana_ProductCategory">
+              <MappingFragment StoreEntitySet="Sana_ProductCategory">
+                <ScalarProperty Name="enable" ColumnName="enable" />
+                <ScalarProperty Name="modificationDate" ColumnName="modificationDate" />
+                <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="idProductCategory" ColumnName="idProductCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sana_Product">
+            <EntityTypeMapping TypeName="SanaModel.Sana_Product">
+              <MappingFragment StoreEntitySet="Sana_Product">
+                <ScalarProperty Name="enable" ColumnName="enable" />
+                <ScalarProperty Name="modificationDate" ColumnName="modificationDate" />
+                <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+                <ScalarProperty Name="productNumber" ColumnName="productNumber" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="idProduct" ColumnName="idProduct" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

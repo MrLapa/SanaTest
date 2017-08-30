@@ -5,18 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="5891185f34774173832523b46b1b561b" Name="Diagram1">
-        <EntityTypeShape EntityType="SanaModel.Sana_CategorieAndProduct" Width="2.125" PointX="9" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SanaModel.Sana_Customer" Width="1.625" PointX="2.875" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SanaModel.Sana_Order" Width="1.5" PointX="2.875" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="SanaModel.Sana_Product" Width="1.5" PointX="6.125" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SanaModel.Sana_ProductCategorie" Width="2" PointX="8.875" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SanaModel.Sana_ProductOrder" Width="1.75" PointX="3" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="SanaModel.FK_Sana_CategorieAndProduct_Sana_Product" ManuallyRouted="false" />
-        <AssociationConnector Association="SanaModel.FK_Sana_CategorieAndProduct_Sana_ProductCategorie" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SanaModel.Sana_Customer" Width="1.625" PointX="2.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SanaModel.Sana_Order" Width="2" PointX="2.625" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SanaModel.Sana_ProductOrder" Width="2.125" PointX="2.625" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="SanaModel.FK_Sana_Order_Sana_Customer" ManuallyRouted="false" />
         <AssociationConnector Association="SanaModel.FK_Sana_ProductOrder_Sana_Order" ManuallyRouted="false" />
-        <AssociationConnector Association="SanaModel.FK_Sana_ProductOrder_Sana_Product" ManuallyRouted="false" />
-      </Diagram>
+        <EntityTypeShape EntityType="SanaModel.Sana_CategoryAndProduct" Width="2.25" PointX="9.125" PointY="1" />
+        <EntityTypeShape EntityType="SanaModel.Sana_ProductCategory" Width="2.125" PointX="9.5" PointY="4.125" />
+        <AssociationConnector Association="SanaModel.FK_Sana_CategoryAndProduct_Sana_ProductCategory" />
+        <EntityTypeShape EntityType="SanaModel.Sana_Product" Width="2.125" PointX="5.75" PointY="0.75" />
+        <AssociationConnector Association="SanaModel.FK_Sana_CategoryAndProduct_Sana_Product" />
+        <AssociationConnector Association="SanaModel.FK_Sana_ProductOrder_Sana_Product" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

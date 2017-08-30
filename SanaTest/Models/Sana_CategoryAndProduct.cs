@@ -12,13 +12,13 @@ namespace SanaTest.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Sana_CategorieAndProduct
+    public partial class Sana_CategoryAndProduct
     {
         public long idProduct { get; set; }
-        public long idCategorie { get; set; }
+        public long idCategory { get; set; }
         public System.DateTime creationDate { get; set; }
     
+        public virtual Sana_ProductCategory Sana_ProductCategory { get; set; }
         public virtual Sana_Product Sana_Product { get; set; }
-        public virtual Sana_ProductCategorie Sana_ProductCategorie { get; set; }
     }
 }

@@ -25,11 +25,11 @@ namespace SanaTest.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Sana_CategorieAndProduct> Sana_CategorieAndProduct { get; set; }
         public virtual DbSet<Sana_Customer> Sana_Customer { get; set; }
         public virtual DbSet<Sana_Order> Sana_Order { get; set; }
-        public virtual DbSet<Sana_Product> Sana_Product { get; set; }
-        public virtual DbSet<Sana_ProductCategorie> Sana_ProductCategorie { get; set; }
         public virtual DbSet<Sana_ProductOrder> Sana_ProductOrder { get; set; }
+        public virtual DbSet<Sana_CategoryAndProduct> Sana_CategoryAndProduct { get; set; }
+        public virtual DbSet<Sana_ProductCategory> Sana_ProductCategory { get; set; }
+        public virtual DbSet<Sana_Product> Sana_Product { get; set; }
     }
 }

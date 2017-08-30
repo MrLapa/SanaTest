@@ -17,7 +17,7 @@ namespace SanaTest.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Sana_Product()
         {
-            this.Sana_CategorieAndProduct = new HashSet<Sana_CategorieAndProduct>();
+            this.Sana_CategoryAndProduct = new HashSet<Sana_CategoryAndProduct>();
             this.Sana_ProductOrder = new HashSet<Sana_ProductOrder>();
         }
     
@@ -27,10 +27,10 @@ namespace SanaTest.Models
         public long productNumber { get; set; }
         public System.DateTime creationDate { get; set; }
         public Nullable<System.DateTime> modificationDate { get; set; }
-        public bool bit { get; set; }
+        public bool enable { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sana_CategorieAndProduct> Sana_CategorieAndProduct { get; set; }
+        public virtual ICollection<Sana_CategoryAndProduct> Sana_CategoryAndProduct { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sana_ProductOrder> Sana_ProductOrder { get; set; }
     }
