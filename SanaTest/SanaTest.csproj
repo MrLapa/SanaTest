@@ -202,12 +202,12 @@
     <Content Include="Models\SanaModel.edmx.diagram">
       <DependentUpon>SanaModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Sana_ProductCategorie\Create.cshtml" />
     <Content Include="Views\Sana_ProductCategorie\Delete.cshtml" />
     <Content Include="Views\Sana_ProductCategorie\Details.cshtml" />
     <Content Include="Views\Sana_ProductCategorie\Edit.cshtml" />
     <Content Include="Views\Sana_ProductCategorie\Index.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
