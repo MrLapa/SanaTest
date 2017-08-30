@@ -11,7 +11,8 @@ namespace SanaTest.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web.Mvc;
+
     public partial class Sana_Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,6 +25,7 @@ namespace SanaTest.Models
         public long idProduct { get; set; }
         public string title { get; set; }
         public decimal price { get; set; }
+        [Remote("CheckProductNumber", "Sana_Product", HttpMethod = "POST" ,ErrorMessage = "Product number field must be unique")]
         public long productNumber { get; set; }
         public System.DateTime creationDate { get; set; }
         public Nullable<System.DateTime> modificationDate { get; set; }

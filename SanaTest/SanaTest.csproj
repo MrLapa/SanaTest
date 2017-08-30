@@ -151,6 +151,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\Sana_ProductCategoryController.cs" />
+    <Compile Include="Controllers\Sana_ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -187,6 +188,7 @@
     <Compile Include="Models\Sana_ProductOrder.cs">
       <DependentUpon>SanaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UniqueProductNumber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -208,6 +210,11 @@
     <Content Include="Views\Sana_ProductCategory\Details.cshtml" />
     <Content Include="Views\Sana_ProductCategory\Edit.cshtml" />
     <Content Include="Views\Sana_ProductCategory\Index.cshtml" />
+    <Content Include="Views\Sana_Product\Delete.cshtml" />
+    <Content Include="Views\Sana_Product\Details.cshtml" />
+    <Content Include="Views\Sana_Product\Edit.cshtml" />
+    <Content Include="Views\Sana_Product\Index.cshtml" />
+    <Content Include="Views\Sana_Product\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
