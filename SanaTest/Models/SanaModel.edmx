@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SanaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SanaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Sana_CategorieAndProduct">
           <Key>
             <PropertyRef Name="idProduct" />
@@ -53,7 +53,7 @@
           <Property Name="idProductCategorie" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="creationDate" Type="smalldatetime" Nullable="false" />
-          <Property Name="modificationDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="modificationDate" Type="smalldatetime" />
           <Property Name="enable" Type="bit" />
         </EntityType>
         <EntityType Name="Sana_ProductOrder">
@@ -153,8 +153,7 @@
             <End Role="Sana_ProductOrder" EntitySet="Sana_ProductOrder" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SanaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -213,7 +212,7 @@
           <Property Name="idProductCategorie" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="creationDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="modificationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="modificationDate" Type="DateTime" Precision="0" />
           <Property Name="enable" Type="Boolean" />
           <NavigationProperty Name="Sana_CategorieAndProduct" Relationship="Self.FK_Sana_CategorieAndProduct_Sana_ProductCategorie" FromRole="Sana_ProductCategorie" ToRole="Sana_CategorieAndProduct" />
         </EntityType>

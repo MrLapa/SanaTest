@@ -11,8 +11,7 @@ namespace SanaTest.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Sana_ProductCategorie
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,12 +19,11 @@ namespace SanaTest.Models
         {
             this.Sana_CategorieAndProduct = new HashSet<Sana_CategorieAndProduct>();
         }
-        
-                    
+    
         public long idProductCategorie { get; set; }
-        public string name { get; set; }        
+        public string name { get; set; }
         public System.DateTime creationDate { get; set; }
-        public System.DateTime modificationDate { get; set; }
+        public Nullable<System.DateTime> modificationDate { get; set; }
         public Nullable<bool> enable { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
