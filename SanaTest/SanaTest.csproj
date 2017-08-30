@@ -150,7 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\Sana_ProductCategorieController.cs" />
+    <Compile Include="Controllers\Sana_ProductCategoryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -169,7 +169,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SanaModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Sana_CategorieAndProduct.cs">
+    <Compile Include="Models\Sana_CategoryAndProduct.cs">
       <DependentUpon>SanaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Sana_Customer.cs">
@@ -181,7 +181,7 @@
     <Compile Include="Models\Sana_Product.cs">
       <DependentUpon>SanaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Sana_ProductCategorie.cs">
+    <Compile Include="Models\Sana_ProductCategory.cs">
       <DependentUpon>SanaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Sana_ProductOrder.cs">
@@ -203,11 +203,11 @@
       <DependentUpon>SanaModel.edmx</DependentUpon>
     </Content>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Sana_ProductCategorie\Create.cshtml" />
-    <Content Include="Views\Sana_ProductCategorie\Delete.cshtml" />
-    <Content Include="Views\Sana_ProductCategorie\Details.cshtml" />
-    <Content Include="Views\Sana_ProductCategorie\Edit.cshtml" />
-    <Content Include="Views\Sana_ProductCategorie\Index.cshtml" />
+    <Content Include="Views\Sana_ProductCategory\Create.cshtml" />
+    <Content Include="Views\Sana_ProductCategory\Delete.cshtml" />
+    <Content Include="Views\Sana_ProductCategory\Details.cshtml" />
+    <Content Include="Views\Sana_ProductCategory\Edit.cshtml" />
+    <Content Include="Views\Sana_ProductCategory\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

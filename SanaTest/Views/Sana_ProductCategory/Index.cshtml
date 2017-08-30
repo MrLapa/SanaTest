@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SanaTest.Models.Sana_ProductCategorie>
+﻿@model IEnumerable<SanaTest.Models.Sana_ProductCategory>
 
 @{
     Layout = null;
@@ -47,9 +47,9 @@
                 @Html.DisplayFor(modelItem => item.enable)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.idProductCategorie }) |
-                @Html.ActionLink("Details", "Details", new { id=item.idProductCategorie }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.idProductCategorie })
+                @Html.ActionLink("Edit", "Edit", new { id=item.idProductCategory }) |
+                @Html.ActionLink("Details", "Details", new { id=item.idProductCategory }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.idProductCategory })
             </td>
         </tr>
     }
