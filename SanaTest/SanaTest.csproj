@@ -138,10 +138,19 @@
       <DependentUpon>SanaModel.edmx</DependentUpon>
       <LastGenOutput>SanaModel.cs</LastGenOutput>
     </Content>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Sana_ProductCategorieController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -193,6 +202,12 @@
     <Content Include="Models\SanaModel.edmx.diagram">
       <DependentUpon>SanaModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Views\Sana_ProductCategorie\Create.cshtml" />
+    <Content Include="Views\Sana_ProductCategorie\Delete.cshtml" />
+    <Content Include="Views\Sana_ProductCategorie\Details.cshtml" />
+    <Content Include="Views\Sana_ProductCategorie\Edit.cshtml" />
+    <Content Include="Views\Sana_ProductCategorie\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -202,7 +217,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

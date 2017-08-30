@@ -1,0 +1,58 @@
+﻿@model SanaTest.Models.Sana_ProductCategorie
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Sana_ProductCategorie</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.creationDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.creationDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.modificationDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.modificationDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.enable)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.enable)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.idProductCategorie }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
