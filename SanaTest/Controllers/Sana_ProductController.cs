@@ -37,7 +37,8 @@ namespace SanaTest.Controllers
 
         // GET: Sana_Product/Create
         public ActionResult Create()
-        {
+        {            
+            ViewData["categories"] = db.Sana_ProductCategory.ToList();
             return View();
         }
 
@@ -46,7 +47,7 @@ namespace SanaTest.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idProduct,title,price,productNumber,creationDate,modificationDate,enable")] Sana_Product sana_Product)
+        public ActionResult Create([Bind(Include = "idProduct,title,price,productNumber,creationDate,modificationDate,enable")] Sana_Product sana_Product, string [] selectedCategories)
         {
             if (ModelState.IsValid)
             {                
@@ -54,6 +55,23 @@ namespace SanaTest.Controllers
                 
                 db.Sana_Product.Add(sana_Product);
                 db.SaveChanges();
+
+                foreach (var item in selectedCategories)
+                {
+                    db.Sana_CategoryAndProduct.Add(new Sana_CategoryAndProduct
+                    {
+                        creationDate = DateTime.Now
+                        ,
+                        idCategory = Convert.ToInt64(item)
+                        ,
+                        idProduct = sana_Product.idProduct
+                    });
+
+
+                }
+
+                db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
