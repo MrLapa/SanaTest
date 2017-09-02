@@ -188,7 +188,6 @@
     <Compile Include="Models\Sana_ProductOrder.cs">
       <DependentUpon>SanaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UniqueProductNumber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
