@@ -17,12 +17,12 @@
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     
     
-    @using (Html.BeginForm()) 
+    @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        
+
         <div class="form-horizontal">
-            <h4>Sana_Product</h4>
+            <h4>Sana Product</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
@@ -48,16 +48,36 @@
                     @Html.ValidationMessageFor(model => model.productNumber, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.enable, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     <div class="checkbox">
-                        @Html.EditorFor(model => model.enable)
+                        @Html.EditorFor(model => model.enable)                        
                         @Html.ValidationMessageFor(model => model.enable, "", new { @class = "text-danger" })
                     </div>
                 </div>
             </div>
+
+            <h4>Categories</h4>
+
+            @{
+                var categoriesList = (List<SanaTest.Models.Sana_ProductCategory>)ViewData["categories"];
+
+                foreach (var item in categoriesList)
+                {
+                    <div class="form-group">                        
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                <input type="checkbox" name="selectedCategories" value="@item.idProductCategory" />
+                                @item.name
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            
     
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
