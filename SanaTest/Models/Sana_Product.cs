@@ -11,7 +11,9 @@ namespace SanaTest.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
+
 
     public partial class Sana_Product
     {
@@ -23,12 +25,24 @@ namespace SanaTest.Models
         }
     
         public long idProduct { get; set; }
+
+        [Display(Name = "Title")]
+        [Required(ErrorMessage = "Please enter title")]
         public string title { get; set; }
+
+        [Display(Name = "Price")]
+        [Required(ErrorMessage = "Please enter price")]
+        [RegularExpression(@"^\d+\.\d{0,2}$", ErrorMessage = "Please enter a valid price")]
         public decimal price { get; set; }
+
+        [Display(Name = "Product number")]
+        [Required(ErrorMessage = "Please enter product number")]
         [Remote("CheckProductNumber", "Sana_Product", HttpMethod = "POST" ,ErrorMessage = "Product number field must be unique")]
         public long productNumber { get; set; }
         public System.DateTime creationDate { get; set; }
         public Nullable<System.DateTime> modificationDate { get; set; }
+
+        [Display(Name = "Enable")]
         public bool enable { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
